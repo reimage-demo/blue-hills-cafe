@@ -588,20 +588,6 @@ section[id] {
   display: grid;
   gap: 48px;
 }
-.event-flyer {
-  display: block;
-  align-self: start;
-  background: var(--soft);
-}
-.event-flyer img {
-  width: 100%;
-}
-.event-detail .event-location-label {
-  margin: 0 0 12px;
-  color: var(--blue-dark);
-  font-size: 0.85rem;
-  font-weight: 650;
-}
 .page-intro {
   padding-block: 56px 42px;
 }
