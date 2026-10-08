@@ -1,7 +1,10 @@
 const EMAIL = "caribeexquisitecatering@gmail.com";
 const page = document.body.dataset.page;
 const header = document.querySelector("[data-header]");
-header.innerHTML = `<a href="#main" class="skip">Skip to content</a><div class="announcement"><button type="button" data-show-promo><strong>$5 meals every Thursday</strong><span>View special</span></button></div><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="Blue Hills Cafe home"><span class="brand-logo"><img src="assets/blue-hills-brand.jpg" alt="Blue Hills Cafe and Bar tropical logo" width="1050" height="600"></span><span class="brand-name">blue hills<small>CAFE & BAR · HARTFORD, CT</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button><nav class="nav" id="main-navigation" aria-label="Main navigation"><a href="index.html" ${page === "home" ? 'aria-current="page"' : ""}>Home</a><a href="events.html" ${page === "events" ? 'aria-current="page"' : ""}>What’s on</a><a href="host.html" ${page === "host" ? 'aria-current="page"' : ""}>Host an event</a><a class="button" href="host.html#inquire">Plan an event</a></nav></div></header>`;
+const announcement = page === "events"
+  ? '<a href="#thursday"><strong>$5 meals every Thursday</strong><span>View special</span></a>'
+  : '<button type="button" data-show-promo><strong>$5 meals every Thursday</strong><span>View special</span></button>';
+header.innerHTML = `<a href="#main" class="skip">Skip to content</a><div class="announcement">${announcement}</div><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="Blue Hills Cafe home"><span class="brand-logo"><img src="assets/blue-hills-brand.jpg" alt="Blue Hills Cafe and Bar tropical logo" width="1050" height="600"></span><span class="brand-name">blue hills<small>CAFE & BAR · HARTFORD, CT</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button><nav class="nav" id="main-navigation" aria-label="Main navigation"><a href="index.html" ${page === "home" ? 'aria-current="page"' : ""}>Home</a><a href="events.html" ${page === "events" ? 'aria-current="page"' : ""}>What’s on</a><a href="host.html" ${page === "host" ? 'aria-current="page"' : ""}>Host an event</a><a class="button" href="host.html#inquire">Plan an event</a></nav></div></header>`;
 document.querySelector("[data-footer]").innerHTML =
   `<footer class="footer"><div class="wrap footer-inner"><div><p class="footer-wordmark">Blue Hills Cafe & Bar</p><p>© ${new Date().getFullYear()} Blue Hills Cafe & Bar</p><p>1329 Albany Avenue · Hartford, Connecticut</p></div><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=1329+Albany+Ave+Hartford+Connecticut" target="_blank" rel="noopener noreferrer">Find us in Hartford</a><a href="tel:+18604361553">(860) 436-1553</a><a href="mailto:${EMAIL}">Get in touch</a></div></div><div class="wrap footer-bottom"><nav class="footer-policy-links" aria-label="Legal and accessibility"><a href="legal.html">Legal</a><a href="privacy.html">Privacy</a><a href="accessibility.html">Accessibility</a><a href="terms.html">Terms</a></nav><p class="footer-credit">Powered By <a href="https://reimagebs.com" target="_blank" rel="noopener noreferrer">REIMAGE BUSINESS SOLUTIONS</a></p></div></footer>`;
 const menuButton = document.querySelector(".menu-toggle");
@@ -38,7 +41,7 @@ const modal = document.createElement("dialog");
 modal.id = "thursday-special";
 modal.setAttribute("aria-labelledby", "promo-title");
 modal.setAttribute("aria-describedby", "promo-description");
-modal.innerHTML = `<div class="promo-close-row"><button class="close-modal" type="button" aria-label="Close Thursday special">×</button></div><div class="promo-content"><p class="promo-label">Blue Hills Cafe & Bar</p><div class="promo-price">$5</div><h2 id="promo-title">Thursday meals</h2><p id="promo-description">A $5 meal, every Thursday at Blue Hills Cafe. Call for this week’s dishes and serving times.</p><a class="button" href="events.html#thursday">See the Thursday special</a><button class="dismiss" type="button">Take a look around</button><small>1329 Albany Ave · Hartford, Connecticut<br><a href="tel:+18604361553">(860) 436-1553</a></small></div>`;
+modal.innerHTML = `<div class="promo-close-row"><button class="close-modal" type="button" aria-label="Close Thursday special">×</button></div><div class="promo-content"><p class="promo-label">Every Thursday</p><h2 id="promo-title">$5 Thursday meals</h2><p id="promo-description">Call for this week’s menu and serving times.</p><a class="button" href="events.html#thursday">See the Thursday special</a></div>`;
 document.body.append(modal);
 function setupPromo(dialog) {
   const close = () => dialog.close();
@@ -71,23 +74,49 @@ const showPromo = setupPromo(modal);
 document
   .querySelectorAll("[data-show-promo]")
   .forEach((button) => button.addEventListener("click", showPromo));
-const eventModal = document.querySelector("#event-special");
-if (eventModal) {
-  const showEventPromo = setupPromo(eventModal);
-  // Let direct links to the Thursday special go straight to that section.
-  if (window.location.hash !== "#thursday") showEventPromo();
-}
-// Keep the Thursday popup on other pages, once per tab session.
-const promoSessionKey = "blue-hills-thursday-seen";
-if (page !== "policy" && page !== "events") {
-  try {
-    if (!sessionStorage.getItem(promoSessionKey)) {
-      showPromo();
-      sessionStorage.setItem(promoSessionKey, "true");
+// Keep recurring offers above dated events. Paid placement never changes date order.
+const eventList = document.querySelector("[data-event-list]");
+if (eventList) {
+  const events = [...eventList.querySelectorAll("[data-event-date]")].sort(
+    (a, b) => a.dataset.eventDate.localeCompare(b.dataset.eventDate),
+  );
+  events.forEach((event) => eventList.append(event));
+
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  // Only explicitly confirmed paid promotions get an automatic popup.
+  const promotedEvent = events.find(
+    (event) => event.dataset.paidPromotion === "true" && event.dataset.eventDate >= today,
+  );
+  if (promotedEvent && !window.location.hash) {
+    const eventModal = document.createElement("dialog");
+    eventModal.id = "event-special";
+    eventModal.setAttribute("aria-labelledby", "event-promo-title");
+    eventModal.setAttribute("aria-describedby", "event-promo-description");
+    eventModal.innerHTML = `<div class="promo-close-row"><button class="close-modal" type="button" aria-label="Close event popup">×</button></div><div class="promo-content"><p class="promo-label">Sponsored event</p><time class="event-promo-date"></time><h2 id="event-promo-title"></h2><p id="event-promo-description"></p><a class="button">See event details</a></div>`;
+    eventModal.querySelector("h2").textContent = promotedEvent.querySelector("h2").textContent;
+    eventModal.querySelector("#event-promo-description").textContent = promotedEvent.dataset.promoSummary;
+    const date = eventModal.querySelector("time");
+    date.dateTime = promotedEvent.dataset.eventDate;
+    date.textContent = new Intl.DateTimeFormat("en-US", {
+      month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
+    }).format(new Date(`${promotedEvent.dataset.eventDate}T12:00:00Z`));
+    eventModal.querySelector("a").href = `#${promotedEvent.id}`;
+    document.body.append(eventModal);
+    const showEventPromo = setupPromo(eventModal);
+    const sessionKey = `blue-hills-promo-${promotedEvent.id}-${promotedEvent.dataset.eventDate}`;
+    try {
+      if (!sessionStorage.getItem(sessionKey)) {
+        showEventPromo();
+        sessionStorage.setItem(sessionKey, "true");
+      }
+    } catch {
+      showEventPromo();
     }
-  } catch {
-    // Storage restrictions should not prevent the special or site from working.
-    showPromo();
   }
 }
 const selection = new Set();

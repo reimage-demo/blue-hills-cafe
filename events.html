@@ -7,7 +7,7 @@
     <title>Upcoming Events | Blue Hills Cafe</title>
     <meta
       name="description"
-      content="Boss Fi Every Boss comes to Blue Hills Cafe on November 13, 2026, with free admission. Check out music, nights out, and $5 Thursday meals in Hartford."
+      content="See upcoming events at Blue Hills Cafe and around Hartford, including Boss Fi Every Boss, Stone Love’s 54th Anniversary, and $5 meals every Thursday."
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
@@ -16,75 +16,92 @@
   <body data-page="events">
     <div data-header></div>
     <main id="main" class="wrap" tabindex="-1">
+      <section class="thursday-banner" id="thursday" aria-labelledby="thursday-title">
+        <div>
+          <p class="banner-eyebrow">Every Thursday at Blue Hills Cafe</p>
+          <h2 id="thursday-title">$5 Thursday meals</h2>
+          <p>Call for this week’s dishes and serving times.</p>
+        </div>
+        <a href="tel:+18604361553" class="button">Ask about the menu</a>
+      </section>
       <div class="page-intro">
         <h1>What’s on</h1>
         <p>
           Good music, familiar faces, and a reason to stay a little longer.
-          See what’s happening at Blue Hills Cafe.
+          Explore nights at the cafe and events around town.
         </p>
       </div>
-      <section
-        class="event-feature featured-night"
-        id="boss-fi-every-boss"
-        aria-labelledby="boss-title"
-      >
-        <div class="event-poster night-poster">
-          <span>Friday · 2026</span>
-          <time class="night-date" datetime="2026-11-13">
-            <span>November</span>
-            <span>13</span>
-          </time>
-          <span class="admission-label">Free admission</span>
-        </div>
-        <div class="event-detail">
-          <h2 id="boss-title">Boss Fi Every Boss</h2>
-          <p>
-            Bring your people and settle in for a night of music at Blue Hills
-            Cafe. Music by Glamma Wayne and Ras-T &amp; Flaco.
-          </p>
-          <dl class="event-facts">
-            <div><dt>When</dt><dd>Friday, November 13, 2026</dd></div>
-            <div><dt>Where</dt><dd>1329 Albany Avenue, Hartford, CT</dd></div>
-            <div><dt>Entry</dt><dd>Free admission</dd></div>
-          </dl>
-          <p>Call the cafe for the start time and event details.</p>
-          <div class="actions">
-            <a href="tel:+18604361553" class="button">Call about this event</a>
-            <a
-              href="https://www.google.com/maps/search/?api=1&amp;query=1329+Albany+Ave+Hartford+Connecticut"
-              class="button outline"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Get directions</a
-            >
+      <div class="event-list" data-event-list>
+        <section
+          class="event-feature"
+          id="boss-fi-every-boss"
+          data-event-date="2026-11-13"
+          data-paid-promotion="false"
+          data-promo-summary="Blue Hills Cafe · Free admission"
+          aria-labelledby="boss-title"
+        >
+          <div class="event-poster night-poster">
+            <span>Friday · 2026</span>
+            <time class="night-date" datetime="2026-11-13">
+              <span>November</span>
+              <span>13</span>
+            </time>
+            <span class="admission-label">Free admission</span>
           </div>
-        </div>
-      </section>
-      <section
-        class="event-feature"
-        id="thursday"
-        aria-labelledby="thursday-title"
-      >
-        <div class="event-poster">
-          <span>Every Thursday</span>
-          <strong>$5</strong>
-          <h2>Thursday meals.</h2>
-        </div>
-        <div class="event-detail">
-          <h2 id="thursday-title">Thursday at the cafe</h2>
-          <p>
-            Make a little room in your Thursday for a $5 meal at Blue Hills
-            Cafe. Bring a friend, bring your appetite, and settle into your
-            neighborhood spot.
-          </p>
-          <p>Call for this week’s dishes and serving times.</p>
-          <div class="actions">
-            <a href="tel:+18604361553" class="button"
-              >Ask about Thursday’s menu</a
-            >
+          <div class="event-detail">
+            <h2 id="boss-title">Boss Fi Every Boss</h2>
+            <p>
+              Bring your people and settle in for a night of music at Blue Hills
+              Cafe. Music by Glamma Wayne and Ras-T &amp; Flaco.
+            </p>
+            <dl class="event-facts">
+              <div><dt>When</dt><dd>Friday, November 13, 2026</dd></div>
+              <div><dt>Where</dt><dd>1329 Albany Avenue, Hartford, CT</dd></div>
+              <div><dt>Entry</dt><dd>Free admission</dd></div>
+            </dl>
+            <p>Call the cafe for the start time and event details.</p>
+            <div class="actions">
+              <a href="tel:+18604361553" class="button">Call about this event</a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&amp;query=1329+Albany+Ave+Hartford+Connecticut"
+                class="button outline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Get directions</a
+              >
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <section
+          class="event-feature"
+          id="stone-love-anniversary"
+          data-event-date="2026-11-14"
+          data-paid-promotion="false"
+          data-promo-summary="Ramada Inn, Windsor Locks · $40 early bird"
+          aria-labelledby="stone-love-title"
+        >
+          <a class="event-flyer" href="assets/stone-love-54th-anniversary.jpg" target="_blank" rel="noopener noreferrer" aria-label="View Stone Love’s 54th Anniversary flyer (opens in a new tab)">
+            <img src="assets/stone-love-54th-anniversary.jpg" alt="Stone Love’s 54th Anniversary event banner outside Blue Hills Cafe" width="1350" height="1800" loading="lazy" />
+          </a>
+          <div class="event-detail">
+            <p class="event-location-label">Around town · Windsor Locks</p>
+            <h2 id="stone-love-title">Stone Love’s 54th Anniversary</h2>
+            <p>
+              Celebrate with special guest host Future Fambo and live performances
+              by Dajah &amp; Kashu.
+            </p>
+            <dl class="event-facts">
+              <div><dt>When</dt><dd><time datetime="2026-11-14">Saturday, November 14, 2026</time></dd></div>
+              <div><dt>Where</dt><dd>Ramada Inn<br />383 South Center Street, Windsor Locks, CT</dd></div>
+              <div><dt>Entry</dt><dd>Early bird tickets $40 · More at the door</dd></div>
+            </dl>
+            <div class="actions">
+              <a href="assets/stone-love-54th-anniversary.jpg" class="button" target="_blank" rel="noopener noreferrer">View event flyer</a>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Ramada+Inn+383+South+Center+Street+Windsor+Locks+CT" class="button outline" target="_blank" rel="noopener noreferrer">Get directions</a>
+            </div>
+          </div>
+        </section>
+      </div>
       <section class="empty-events" aria-labelledby="more-events">
         <div>
           <h3 id="more-events">More dates coming soon</h3>
@@ -110,31 +127,6 @@
         <a href="host.html" class="button">Host your event</a>
       </section>
     </main>
-    <dialog
-      id="event-special"
-      aria-labelledby="event-promo-title"
-      aria-describedby="event-promo-description"
-    >
-      <div class="promo-close-row">
-        <button class="close-modal" type="button" aria-label="Close event popup">×</button>
-      </div>
-      <div class="promo-content">
-        <p class="promo-label">Coming up at Blue Hills Cafe</p>
-        <time class="event-promo-date" datetime="2026-11-13">Friday, November 13, 2026</time>
-        <h2 id="event-promo-title">Boss Fi Every Boss</h2>
-        <p class="event-promo-entry">Free admission</p>
-        <p id="event-promo-description">
-          Bring your people for a night of music with Glamma Wayne and
-          Ras-T &amp; Flaco. Call the cafe for the start time and event details.
-        </p>
-        <a class="button" href="#boss-fi-every-boss">See event details</a>
-        <button class="dismiss" type="button">Take a look around</button>
-        <small>
-          1329 Albany Ave · Hartford, Connecticut<br />
-          <a href="tel:+18604361553">(860) 436-1553</a>
-        </small>
-      </div>
-    </dialog>
     <div data-footer></div>
   </body>
 </html>
