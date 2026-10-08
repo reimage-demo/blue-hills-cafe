@@ -797,23 +797,27 @@ section[id] {
 }
 .bottle-gallery {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(5, minmax(150px, 180px));
+  gap: 12px;
   border-top: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
 }
 .bottle-gallery .bottle-row {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 12px;
+  gap: 8px;
   min-width: 0;
-  padding: 18px;
+  padding: 12px;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 8px;
+  scroll-snap-align: start;
 }
 .bottle-photo {
-  height: 240px;
+  height: 120px;
   overflow: hidden;
   background: #fff;
 }
@@ -822,46 +826,29 @@ section[id] {
   height: 100%;
   object-fit: contain;
 }
-.bottle-photo--square img {
-  object-fit: cover;
-}
 .bottle-photo--ciroc img {
   height: 155%;
   object-position: center top;
 }
 .bottle-gallery .bottle-row h3 {
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   line-height: 1.3;
-  margin-bottom: 8px;
+  min-height: 2.6em;
+  margin-bottom: 4px;
+}
+.bottle-gallery .bottle-category {
+  font-size: 0.75rem;
 }
 .bottle-gallery .bottle-row button {
   width: 100%;
   min-width: 0;
   margin-top: auto;
   border-color: var(--line);
+  padding: 8px;
+  font-size: 0.75rem;
 }
 .bottle-gallery .bottle-row.selected {
   border-color: var(--blue);
-}
-@media (max-width: 1000px) {
-  .bottle-gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-@media (max-width: 600px) {
-  .bottle-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-  .bottle-gallery .bottle-row {
-    padding: 12px;
-  }
-  .bottle-photo {
-    height: 190px;
-  }
-  .bottle-gallery .bottle-row h3 {
-    font-size: 1.05rem;
-  }
 }
 .catering-grid {
   display: grid;
