@@ -1,0 +1,22 @@
+{
+  "hennessy-vs": {
+    "page": "https://us.hennessy.com/en-us/collection/hennessy-very-special",
+    "image": "https://us.hennessy.com/sites/hennessy_us/files/2024-08/hny_vs_packshot_2000x2000.jpg"
+  },
+  "remy-martin-vsop": {
+    "page": "https://www.remymartin.com/collection/vsop/",
+    "image": "https://static-prod.remymartin.com/app/uploads/2025/11/remy-martin-vsop-01-front-251106-01-600x600.webp"
+  },
+  "ciroc-original": {
+    "page": "https://www.ciroc.com/en-us/vodkas/ultra-premium-vodka",
+    "image": "https://images.ctfassets.net/31x7zf94v2b3/2Jj5kgaQlqOgxs7OlTFMZB/0a37a5c22ffd00f7d3e0bcfe6b5691ec/Bottle_Primary_PDPv2.png"
+  },
+  "don-julio-blanco": {
+    "page": "https://www.donjulio.com/our-tequilas/don-julio-blanco-tequila",
+    "image": "https://images.ctfassets.net/msj5difukazp/2j3MIBzSm3pteb2VTaN6QB/825a7092df434db3d135786006d80eee/Bottle.png"
+  },
+  "moet-imperial": {
+    "page": "https://www.moet.com/en-us/moet-imperial",
+    "image": "https://www.moet.com/sites/default/files/styles/portrait_bottle/public/2024-01/Moet-imperial-Bottle.png"
+  }
+}
