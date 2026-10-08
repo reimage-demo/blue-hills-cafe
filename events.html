@@ -7,7 +7,7 @@
     <title>Upcoming Events | Blue Hills Cafe</title>
     <meta
       name="description"
-      content="Make plans at Blue Hills Cafe in Hartford. Join us for $5 Thursday meals and check back for upcoming events on Albany Avenue."
+      content="Boss Fi Every Boss comes to Blue Hills Cafe on November 13, 2026, with free admission. Check out music, nights out, and $5 Thursday meals in Hartford."
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
@@ -19,10 +19,47 @@
       <div class="page-intro">
         <h1>What’s on</h1>
         <p>
-          A familiar face, something good to eat, and an evening out on Albany
-          Avenue. See what’s happening at Blue Hills Cafe.
+          Good music, familiar faces, and a reason to stay a little longer.
+          See what’s happening at Blue Hills Cafe.
         </p>
       </div>
+      <section
+        class="event-feature featured-night"
+        id="boss-fi-every-boss"
+        aria-labelledby="boss-title"
+      >
+        <div class="event-poster night-poster">
+          <span>Friday · 2026</span>
+          <time class="night-date" datetime="2026-11-13">
+            <span>November</span>
+            <span>13</span>
+          </time>
+          <span class="admission-label">Free admission</span>
+        </div>
+        <div class="event-detail">
+          <h2 id="boss-title">Boss Fi Every Boss</h2>
+          <p>
+            Bring your people and settle in for a night of music at Blue Hills
+            Cafe. Music by Glamma Wayne and Ras-T &amp; Flaco.
+          </p>
+          <dl class="event-facts">
+            <div><dt>When</dt><dd>Friday, November 13, 2026</dd></div>
+            <div><dt>Where</dt><dd>1329 Albany Avenue, Hartford, CT</dd></div>
+            <div><dt>Entry</dt><dd>Free admission</dd></div>
+          </dl>
+          <p>Call the cafe for the start time and event details.</p>
+          <div class="actions">
+            <a href="tel:+18604361553" class="button">Call about this event</a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&amp;query=1329+Albany+Ave+Hartford+Connecticut"
+              class="button outline"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Get directions</a
+            >
+          </div>
+        </div>
+      </section>
       <section
         class="event-feature"
         id="thursday"
@@ -73,6 +110,31 @@
         <a href="host.html" class="button">Host your event</a>
       </section>
     </main>
+    <dialog
+      id="event-special"
+      aria-labelledby="event-promo-title"
+      aria-describedby="event-promo-description"
+    >
+      <div class="promo-close-row">
+        <button class="close-modal" type="button" aria-label="Close event popup">×</button>
+      </div>
+      <div class="promo-content">
+        <p class="promo-label">Coming up at Blue Hills Cafe</p>
+        <time class="event-promo-date" datetime="2026-11-13">Friday, November 13, 2026</time>
+        <h2 id="event-promo-title">Boss Fi Every Boss</h2>
+        <p class="event-promo-entry">Free admission</p>
+        <p id="event-promo-description">
+          Bring your people for a night of music with Glamma Wayne and
+          Ras-T &amp; Flaco. Call the cafe for the start time and event details.
+        </p>
+        <a class="button" href="#boss-fi-every-boss">See event details</a>
+        <button class="dismiss" type="button">Take a look around</button>
+        <small>
+          1329 Albany Ave · Hartford, Connecticut<br />
+          <a href="tel:+18604361553">(860) 436-1553</a>
+        </small>
+      </div>
+    </dialog>
     <div data-footer></div>
   </body>
 </html>

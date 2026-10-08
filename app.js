@@ -40,41 +40,46 @@ modal.setAttribute("aria-labelledby", "promo-title");
 modal.setAttribute("aria-describedby", "promo-description");
 modal.innerHTML = `<div class="promo-close-row"><button class="close-modal" type="button" aria-label="Close Thursday special">×</button></div><div class="promo-content"><p class="promo-label">Blue Hills Cafe & Bar</p><div class="promo-price">$5</div><h2 id="promo-title">Thursday meals</h2><p id="promo-description">A $5 meal, every Thursday at Blue Hills Cafe. Call for this week’s dishes and serving times.</p><a class="button" href="events.html#thursday">See the Thursday special</a><button class="dismiss" type="button">Take a look around</button><small>1329 Albany Ave · Hartford, Connecticut<br><a href="tel:+18604361553">(860) 436-1553</a></small></div>`;
 document.body.append(modal);
-function showPromo() {
-  if (modal.open) return;
-  modal.showModal();
-  document.body.classList.add("modal-open");
-}
-function closePromo() {
-  modal.close();
-}
-modal
-  .querySelectorAll(".close-modal,.dismiss")
-  .forEach((b) => b.addEventListener("click", closePromo));
-modal
-  .querySelectorAll("a")
-  .forEach((link) => link.addEventListener("click", closePromo));
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    const r = modal.getBoundingClientRect();
+function setupPromo(dialog) {
+  const close = () => dialog.close();
+  dialog
+    .querySelectorAll(".close-modal,.dismiss,a")
+    .forEach((control) => control.addEventListener("click", close));
+  dialog.addEventListener("click", (event) => {
+    if (event.target !== dialog) return;
+    const bounds = dialog.getBoundingClientRect();
     if (
-      e.clientX < r.left ||
-      e.clientX > r.right ||
-      e.clientY < r.top ||
-      e.clientY > r.bottom
-    )
-      closePromo();
-  }
-});
-modal.addEventListener("close", () => {
-  document.body.classList.remove("modal-open");
-});
+      event.clientX < bounds.left ||
+      event.clientX > bounds.right ||
+      event.clientY < bounds.top ||
+      event.clientY > bounds.bottom
+    ) close();
+  });
+  dialog.addEventListener("close", () => {
+    document.body.classList.toggle(
+      "modal-open",
+      Boolean(document.querySelector("dialog[open]")),
+    );
+  });
+  return () => {
+    if (dialog.open) return;
+    dialog.showModal();
+    document.body.classList.add("modal-open");
+  };
+}
+const showPromo = setupPromo(modal);
 document
   .querySelectorAll("[data-show-promo]")
-  .forEach((b) => b.addEventListener("click", showPromo));
-// Show once per tab session; the announcement can always reopen the special.
+  .forEach((button) => button.addEventListener("click", showPromo));
+const eventModal = document.querySelector("#event-special");
+if (eventModal) {
+  const showEventPromo = setupPromo(eventModal);
+  // Let direct links to the Thursday special go straight to that section.
+  if (window.location.hash !== "#thursday") showEventPromo();
+}
+// Keep the Thursday popup on other pages, once per tab session.
 const promoSessionKey = "blue-hills-thursday-seen";
-if (page !== "policy") {
+if (page !== "policy" && page !== "events") {
   try {
     if (!sessionStorage.getItem(promoSessionKey)) {
       showPromo();
@@ -110,7 +115,7 @@ if (form) {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const d = new FormData(form);
-    const subject = `Blue Hills Cafe — ${d.get("service")} inquiry`;
+    const subject = `Blue Hills Cafe: ${d.get("service")} inquiry`;
     const body = `Hello Blue Hills Cafe,\n\nI would like to inquire about ${d.get("service")}.\n\nName: ${d.get("name")}\nEmail: ${d.get("email")}\nPreferred date: ${d.get("date") || "Flexible"}\nGuests: ${d.get("guests") || "To be confirmed"}\nBottle requests: ${[...selection].join(", ") || "None selected"}\n\nDetails:\n${d.get("details") || "Please contact me to discuss."}\n\nThank you!`;
     const url = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const status = document.querySelector("#form-status");
