@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Host an Event, Bottles & Catering | Blue Hills Cafe</title>
+    <meta
+      name="description"
+      content="Plan your celebration at Blue Hills Cafe. Explore event space rentals with Appispot, bottle requests, and Jamaican catering from Caribe Exquisite Catering."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="host">
+    <div data-header></div>
+    <main id="main" tabindex="-1">
+      <div class="wrap">
+        <div class="page-intro">
+          <h1>Gather at Blue Hills</h1>
+          <p>
+            Private celebrations, bottle service, and Jamaican catering on
+            Albany Avenue. Tell us your date and what you have in mind.
+          </p>
+          <div class="actions">
+            <a href="#inquire" class="button">Start planning your event</a>
+          </div>
+        </div>
+        <nav class="hosting-nav" aria-label="Hosting sections">
+          <a href="#space">The space</a>
+          <a href="#bottles">Bottle service</a>
+          <a href="#catering">Catering</a>
+          <a href="#appispot">Rent with Appispot</a>
+        </nav>
+        <section id="space" class="section rental-layout">
+          <div>
+            <h2>Space for your occasion</h2>
+            <p>
+              In the heart of Albany Avenue, Blue Hills Cafe brings a relaxed
+              bar atmosphere and a spacious setting together. From intimate
+              get-togethers to a room full of your favorite people, let’s talk
+              about what you have in mind.
+            </p>
+            <p>
+              Find us at 1329 Albany Ave, Hartford, Connecticut. For
+              availability, guest capacity, rental rates, and setup options,
+              email
+              <a
+                class="text-link rental-email"
+                href="mailto:caribeexquisitecatering@gmail.com?subject=Blue%20Hills%20Cafe%20space%20rental%20inquiry"
+                >caribeexquisitecatering@gmail.com</a
+              >.
+            </p>
+            <div class="occasion-list">
+              <div>Birthday celebrations</div>
+              <div>Private parties</div>
+              <div>Bridal showers</div>
+              <div>Baby showers</div>
+              <div>Game nights</div>
+              <div>Bingo & gatherings</div>
+            </div>
+          </div>
+          <div class="photo-frame rental-photo">
+            <img
+              src="assets/blue-hills-interior-1448.webp"
+              srcset="
+                assets/blue-hills-interior-640.webp   640w,
+                assets/blue-hills-interior-1448.webp 1448w
+              "
+              sizes="(max-width: 900px) calc(100vw - 50px), (max-width: 1336px) 44vw, 578px"
+              alt="Blue Hills Cafe interior with a wooden bar, bar stools, blue lighting, televisions, and a pool table"
+              width="1448"
+              height="1086"
+              loading="lazy"
+            />
+          </div>
+        </section>
+      </div>
+      <section class="section bottles-section" id="bottles">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <h2>Bottle service</h2>
+            </div>
+            <a href="#inquire" class="text-link">Inquire about bottles</a>
+          </div>
+          <div class="bottle-list">
+            <article class="bottle-row">
+              <span class="bottle-category">Cognac</span>
+              <h3>Hennessy V.S</h3>
+              <button
+                type="button"
+                data-bottle="Hennessy V.S"
+                aria-pressed="false"
+              >
+                Add to inquiry
+              </button>
+            </article>
+            <article class="bottle-row">
+              <span class="bottle-category">Cognac</span>
+              <h3>Rémy Martin VSOP</h3>
+              <button
+                type="button"
+                data-bottle="Rémy Martin VSOP"
+                aria-pressed="false"
+              >
+                Add to inquiry
+              </button>
+            </article>
+            <article class="bottle-row">
+              <span class="bottle-category">Vodka</span>
+              <h3>Cîroc Original</h3>
+              <button
+                type="button"
+                data-bottle="Cîroc Original"
+                aria-pressed="false"
+              >
+                Add to inquiry
+              </button>
+            </article>
+            <article class="bottle-row">
+              <span class="bottle-category">Tequila</span>
+              <h3>Don Julio Blanco</h3>
+              <button
+                type="button"
+                data-bottle="Don Julio Blanco"
+                aria-pressed="false"
+              >
+                Add to inquiry
+              </button>
+            </article>
+            <article class="bottle-row">
+              <span class="bottle-category">Champagne</span>
+              <h3>Moët & Chandon</h3>
+              <button
+                type="button"
+                data-bottle="Moët & Chandon"
+                aria-pressed="false"
+              >
+                Add to inquiry
+              </button>
+            </article>
+          </div>
+          <p class="bottle-note">
+            Sample bottle selection. Availability and pricing must be confirmed
+            with our team. Bottle service is for guests 21+.
+          </p>
+          <p class="bottle-note" id="bottle-summary" aria-live="polite">
+            No bottles selected. You can add requests above.
+          </p>
+        </div>
+      </section>
+      <section class="section wrap catering-grid" id="catering">
+        <div class="catering-photos">
+          <div class="photo-frame">
+            <img
+              class="food-photo"
+              src="assets/fried-chicken-rice-peas-1536.webp"
+              srcset="
+                assets/fried-chicken-rice-peas-640.webp   640w,
+                assets/fried-chicken-rice-peas-1536.webp 1536w
+              "
+              sizes="(max-width: 760px) 78vw, (max-width: 1336px) 38vw, 466px"
+              alt="Generated catering photograph of crispy fried chicken with Jamaican rice and peas and cabbage"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            />
+          </div>
+          <div class="photo-frame">
+            <img
+              class="food-photo"
+              src="assets/jerk-pork-1536.webp"
+              srcset="
+                assets/jerk-pork-640.webp   640w,
+                assets/jerk-pork-1536.webp 1536w
+              "
+              sizes="(max-width: 760px) 78vw, (max-width: 1336px) 38vw, 466px"
+              alt="Generated catering photograph of sliced Jamaican jerk pork with charred spice crust, thyme, scallion and Scotch bonnet"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div>
+          <h2>Jamaican food,<br />made for your gathering</h2>
+          <img
+            class="partner-logo"
+            src="assets/catering-brand.jpg"
+            alt="Caribe Exquisite Catering, Fowla Man, and Top Chef Kitchen by Keion — authentic Jamaican flavors"
+            width="1050"
+            height="600"
+            loading="lazy"
+          />
+          <p>
+            Fried chicken, rice and peas, and jerk pork from Caribe Exquisite
+            Catering, “Fowla Man,” and Top Chef Kitchen by Keion. Talk with us
+            about dishes, portions, and your event menu.
+          </p>
+          <p>
+            From private chef experiences and meal prep to weddings, birthdays,
+            corporate gatherings, and holiday celebrations, let’s build a menu
+            for your people and your occasion.
+          </p>
+          <div class="catering-services">
+            <span>Private chef</span>
+            <span>Event catering</span>
+            <span>Weddings</span>
+            <span>Meal prep</span>
+          </div>
+          <div class="actions">
+            <a
+              href="mailto:caribeexquisitecatering@gmail.com?subject=Catering%20inquiry"
+              class="button"
+              >Let’s talk catering</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="wrap appispot" id="appispot">
+        <div>
+          <h2>Rent through Appispot</h2>
+          <p>
+            Interested in renting Blue Hills Cafe through Appispot? Tell us
+            about your gathering and we’ll help you with availability and the
+            next steps.
+          </p>
+          <div class="actions">
+            <a
+              href="mailto:caribeexquisitecatering@gmail.com?subject=Blue%20Hills%20Cafe%20Appispot%20rental%20inquiry"
+              class="button"
+              >Email us about a rental</a
+            >
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <b>1.</b>
+            <div>
+              <h3>Tell us what you’re planning</h3>
+              <p>Share your occasion, preferred date, and guest count.</p>
+            </div>
+          </div>
+          <div class="step">
+            <b>2.</b>
+            <div>
+              <h3>Make it your own</h3>
+              <p>
+                Talk through the space, catering, and bottle requests with our
+                team.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <b>3.</b>
+            <div>
+              <h3>Confirm the details</h3>
+              <p>
+                We’ll guide you through pricing, availability, and the Appispot
+                rental process.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section wrap inquiry-grid" id="inquire">
+        <div>
+          <h2>Tell us about your event</h2>
+          <p>
+            Have a celebration in mind? Send a few details and we’ll talk about
+            bringing it together.
+          </p>
+          <p>
+            For space rentals, email us directly:<br />
+            <a
+              class="text-link rental-email"
+              href="mailto:caribeexquisitecatering@gmail.com?subject=Blue%20Hills%20Cafe%20space%20rental%20inquiry"
+              >caribeexquisitecatering@gmail.com</a
+            >
+          </p>
+        </div>
+        <form class="inquiry-form" id="inquiry-form">
+          <div class="field">
+            <label for="name">Your name *</label>
+            <input
+              id="name"
+              name="name"
+              autocomplete="name"
+              required
+              maxlength="100"
+            />
+          </div>
+          <div class="field">
+            <label for="email">Email address *</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              maxlength="200"
+            />
+          </div>
+          <div class="field full">
+            <label for="service">What are you planning? *</label>
+            <select id="service" name="service" required>
+              <option value="">Select an inquiry</option>
+              <option>Private event</option>
+              <option>Appispot space rental</option>
+              <option>Bottle service</option>
+              <option>Catering</option>
+              <option>Event with bottles and catering</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Preferred date</label>
+            <input id="date" name="date" type="date" />
+          </div>
+          <div class="field">
+            <label for="guests">Estimated guests</label>
+            <input
+              id="guests"
+              name="guests"
+              type="number"
+              min="1"
+              max="10000"
+              inputmode="numeric"
+              placeholder="e.g. 30"
+            />
+          </div>
+          <div class="field full">
+            <label for="details">A little about your event</label>
+            <textarea
+              id="details"
+              name="details"
+              maxlength="3000"
+              placeholder="The occasion, your ideas, and anything you’d like us to know…"
+            ></textarea>
+          </div>
+          <p class="form-note">
+            This opens a draft in your email app, including any bottles you
+            selected. Send the email to submit your inquiry. Your date and
+            requests are confirmed only after you hear from our team.
+          </p>
+          <button class="button" type="submit">Create email inquiry</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+    <div data-footer></div>
+  </body>
+</html>
