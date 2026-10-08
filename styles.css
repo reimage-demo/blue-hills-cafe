@@ -797,7 +797,7 @@ section[id] {
 }
 .bottle-gallery {
   display: grid;
-  grid-template-columns: repeat(5, minmax(150px, 180px));
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
   gap: 12px;
   border-top: 0;
   overflow-x: auto;
