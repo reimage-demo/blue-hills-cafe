@@ -137,6 +137,20 @@ h1 {
 footer {
   margin-top: 20px;
 }
+.policy-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 18px;
+  margin-top: 8px;
+}
+.policy-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+  text-underline-offset: 4px;
+}
 .contact-links {
   display: flex;
   justify-content: center;
