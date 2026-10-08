@@ -1,9 +1,7 @@
 const EMAIL = "caribeexquisitecatering@gmail.com";
 const page = document.body.dataset.page;
 const header = document.querySelector("[data-header]");
-const announcement = page === "events"
-  ? '<a href="#thursday"><strong>$5 meals every Thursday</strong><span>View special</span></a>'
-  : '<button type="button" data-show-promo><strong>$5 meals every Thursday</strong><span>View special</span></button>';
+const announcement = '<button type="button" data-show-promo><strong>$5 meals every Thursday</strong><span>View special</span></button>';
 header.innerHTML = `<a href="#main" class="skip">Skip to content</a><div class="announcement">${announcement}</div><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="Blue Hills Cafe home"><span class="brand-logo"><img src="assets/blue-hills-brand.jpg" alt="Blue Hills Cafe and Bar tropical logo" width="1050" height="600"></span><span class="brand-name">blue hills<small>CAFE & BAR · HARTFORD, CT</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button><nav class="nav" id="main-navigation" aria-label="Main navigation"><a href="index.html" ${page === "home" ? 'aria-current="page"' : ""}>Home</a><a href="events.html" ${page === "events" ? 'aria-current="page"' : ""}>What’s on</a><a href="host.html" ${page === "host" ? 'aria-current="page"' : ""}>Host an event</a><a class="button" href="host.html#inquire">Plan an event</a></nav></div></header>`;
 document.querySelector("[data-footer]").innerHTML =
   `<footer class="footer"><div class="wrap footer-inner"><div><p class="footer-wordmark">Blue Hills Cafe & Bar</p><p>© ${new Date().getFullYear()} Blue Hills Cafe & Bar</p><p>1329 Albany Avenue · Hartford, Connecticut</p></div><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=1329+Albany+Ave+Hartford+Connecticut" target="_blank" rel="noopener noreferrer">Find us in Hartford</a><a href="tel:+18604361553">(860) 436-1553</a><a href="mailto:${EMAIL}">Get in touch</a></div></div><div class="wrap footer-bottom"><nav class="footer-policy-links" aria-label="Legal and accessibility"><a href="legal.html">Legal</a><a href="privacy.html">Privacy</a><a href="accessibility.html">Accessibility</a><a href="terms.html">Terms</a></nav><p class="footer-credit">Powered By <a href="https://reimagebs.com" target="_blank" rel="noopener noreferrer">REIMAGE BUSINESS SOLUTIONS</a></p></div></footer>`;
@@ -41,7 +39,7 @@ const modal = document.createElement("dialog");
 modal.id = "thursday-special";
 modal.setAttribute("aria-labelledby", "promo-title");
 modal.setAttribute("aria-describedby", "promo-description");
-modal.innerHTML = `<div class="promo-close-row"><button class="close-modal" type="button" aria-label="Close Thursday special">×</button></div><div class="promo-content"><p class="promo-label">Every Thursday</p><h2 id="promo-title">$5 Thursday meals</h2><p id="promo-description">Call for this week’s menu and serving times.</p><a class="button" href="events.html#thursday">See the Thursday special</a></div>`;
+modal.innerHTML = `<div class="promo-close-row"><button class="close-modal" type="button" aria-label="Close Thursday special">×</button></div><div class="promo-content"><p class="promo-label">Every Thursday</p><h2 id="promo-title"><span class="promo-price">$5</span><span class="promo-heading">meals</span></h2><p class="promo-venue">Blue Hills Cafe</p><p id="promo-description">Call for this week’s dishes and serving times.</p><a class="button" href="events.html#thursday">View special</a></div>`;
 document.body.append(modal);
 function setupPromo(dialog) {
   const close = () => dialog.close();
@@ -65,15 +63,28 @@ function setupPromo(dialog) {
     );
   });
   return () => {
-    if (dialog.open) return;
+    if (document.querySelector("dialog[open]")) return;
     dialog.showModal();
     document.body.classList.add("modal-open");
   };
 }
 const showPromo = setupPromo(modal);
+function showPromoOnce(sessionKey, show) {
+  if (window.location.hash) return;
+  try {
+    if (sessionStorage.getItem(sessionKey)) return;
+    show();
+    sessionStorage.setItem(sessionKey, "true");
+  } catch {
+    show();
+  }
+}
 document
   .querySelectorAll("[data-show-promo]")
   .forEach((button) => button.addEventListener("click", showPromo));
+if (page === "home") {
+  showPromoOnce("blue-hills-thursday-v2", showPromo);
+}
 // Keep recurring offers above dated events. Paid placement never changes date order.
 const eventList = document.querySelector("[data-event-list]");
 if (eventList) {
@@ -88,35 +99,29 @@ if (eventList) {
     month: "2-digit",
     day: "2-digit",
   }).format(new Date());
-  // Only explicitly confirmed paid promotions get an automatic popup.
+  // Cafe features can be promoted without implying a paid sponsorship.
   const promotedEvent = events.find(
-    (event) => event.dataset.paidPromotion === "true" && event.dataset.eventDate >= today,
+    (event) => (event.dataset.popup === "true" || event.dataset.paidPromotion === "true") && event.dataset.eventDate >= today,
   );
   if (promotedEvent && !window.location.hash) {
     const eventModal = document.createElement("dialog");
     eventModal.id = "event-special";
     eventModal.setAttribute("aria-labelledby", "event-promo-title");
     eventModal.setAttribute("aria-describedby", "event-promo-description");
-    eventModal.innerHTML = `<div class="promo-close-row"><button class="close-modal" type="button" aria-label="Close event popup">×</button></div><div class="promo-content"><p class="promo-label">Sponsored event</p><time class="event-promo-date"></time><h2 id="event-promo-title"></h2><p id="event-promo-description"></p><a class="button">See event details</a></div>`;
+    eventModal.innerHTML = `<div class="promo-close-row"><button class="close-modal" type="button" aria-label="Close event popup">×</button></div><div class="promo-content"><p class="promo-label"></p><h2 id="event-promo-title"></h2><time class="event-promo-date"></time><p id="event-promo-description"></p><a class="button">View event</a></div>`;
+    eventModal.querySelector(".promo-label").textContent = promotedEvent.dataset.paidPromotion === "true" ? "Sponsored event" : "Upcoming event";
     eventModal.querySelector("h2").textContent = promotedEvent.querySelector("h2").textContent;
     eventModal.querySelector("#event-promo-description").textContent = promotedEvent.dataset.promoSummary;
     const date = eventModal.querySelector("time");
     date.dateTime = promotedEvent.dataset.eventDate;
     date.textContent = new Intl.DateTimeFormat("en-US", {
-      month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
+      weekday: "short", month: "short", day: "numeric", year: "numeric", timeZone: "UTC",
     }).format(new Date(`${promotedEvent.dataset.eventDate}T12:00:00Z`));
     eventModal.querySelector("a").href = `#${promotedEvent.id}`;
     document.body.append(eventModal);
     const showEventPromo = setupPromo(eventModal);
-    const sessionKey = `blue-hills-promo-${promotedEvent.id}-${promotedEvent.dataset.eventDate}`;
-    try {
-      if (!sessionStorage.getItem(sessionKey)) {
-        showEventPromo();
-        sessionStorage.setItem(sessionKey, "true");
-      }
-    } catch {
-      showEventPromo();
-    }
+    const sessionKey = `blue-hills-promo-v2-${promotedEvent.id}-${promotedEvent.dataset.eventDate}`;
+    showPromoOnce(sessionKey, showEventPromo);
   }
 }
 const selection = new Set();
