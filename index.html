@@ -10,27 +10,37 @@
       content="Your neighborhood late-night bar on Albany Avenue in Hartford. Visit Blue Hills Cafe for $5 Thursday meals, private celebrations, bottles, and Caribbean catering."
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261008-popups" />
+    <link rel="stylesheet" href="styles.css?v=20261008-food-framing" />
     <script src="app.js?v=20261008-popups" defer></script>
   </head>
   <body data-page="home">
     <div data-header></div>
     <main id="main" tabindex="-1">
       <section class="food-hero" aria-labelledby="hero-heading">
-        <img
-          class="hero-food-image"
-          src="assets/catering-hero-centered-1774.webp"
-          srcset="
-            assets/catering-hero-centered-768.webp   768w,
-            assets/catering-hero-centered-1280.webp 1280w,
-            assets/catering-hero-centered-1774.webp 1774w
-          "
-          sizes="100vw"
-          alt="Generated Jamaican catering spread with fried chicken, rice and peas, and jerk pork framing an open center"
-          width="1774"
-          height="887"
-          fetchpriority="high"
-        />
+        <div class="hero-food-spread" aria-hidden="true">
+          <div class="hero-food-group hero-food-left">
+            <img
+              src="assets/catering-hero-centered-1774.webp"
+              srcset="assets/catering-hero-centered-768.webp 768w, assets/catering-hero-centered-1280.webp 1280w, assets/catering-hero-centered-1774.webp 1774w"
+              sizes="(max-width: 700px) 1000px, 100vw"
+              alt=""
+              width="1774"
+              height="887"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="hero-food-group hero-food-right">
+            <img
+              src="assets/catering-hero-centered-1774.webp"
+              srcset="assets/catering-hero-centered-768.webp 768w, assets/catering-hero-centered-1280.webp 1280w, assets/catering-hero-centered-1774.webp 1774w"
+              sizes="(max-width: 700px) 1000px, 100vw"
+              alt=""
+              width="1774"
+              height="887"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
         <div class="wrap hero">
           <div class="hero-copy">
             <h1 id="hero-heading">Good music.<br />Great company.</h1>

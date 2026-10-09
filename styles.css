@@ -1535,7 +1535,7 @@ dialog::backdrop {
   }
 }
 
-/* Food-led hero: one vibrant photograph, a short message, and two clear actions. */
+/* Food frames the copy at the sides on desktop and above/below on mobile. */
 .food-hero {
   position: relative;
   isolation: isolate;
@@ -1543,14 +1543,32 @@ dialog::backdrop {
   background: var(--blue);
   color: #fff;
 }
-.hero-food-image {
+.hero-food-spread {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  pointer-events: none;
   z-index: -1;
+}
+.hero-food-group {
+  position: absolute;
+  bottom: 0;
+  width: 22%;
+  height: 50vw;
+  overflow: hidden;
+}
+.hero-food-group img {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+.hero-food-left,
+.hero-food-left img {
+  left: 0;
+}
+.hero-food-right,
+.hero-food-right img {
+  right: 0;
 }
 .hero {
   display: flex;
@@ -1637,7 +1655,7 @@ dialog::backdrop {
 }
 @media (max-width: 1100px) {
   .hero-copy {
-    width: min(620px, 76%);
+    width: min(620px, 64%);
   }
   .hero h1 {
     font-size: clamp(2.8rem, 4.5vw, 4.2rem);
@@ -1651,14 +1669,9 @@ dialog::backdrop {
   }
 }
 @media (max-width: 700px) {
-  .food-hero {
-    display: flex;
-    flex-direction: column;
-  }
   .hero {
-    order: -1;
     min-height: 0;
-    padding-block: 38px 20px;
+    padding-block: 164px 220px;
   }
   .hero-copy {
     width: 100%;
@@ -1682,13 +1695,20 @@ dialog::backdrop {
     margin-top: 12px;
     font-size: 0.8rem;
   }
-  .hero-food-image {
-    position: relative;
-    z-index: 0;
-    height: clamp(145px, 40vw, 210px);
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+  .hero-food-group {
+    width: 220px;
+    height: 500px;
+    left: calc(50% - 110px);
+    right: auto;
+    transform: rotate(90deg);
+  }
+  .hero-food-left {
+    top: -205px;
+    bottom: auto;
+  }
+  .hero-food-right {
+    top: auto;
+    bottom: -150px;
   }
   .experiences {
     padding-top: 40px;
