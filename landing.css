@@ -3,7 +3,7 @@
 :root {
   font-family: "DM Sans", Arial, sans-serif;
   color: #151b28;
-  background: #f3f6fc;
+  background: #f2f7fb;
   font-synthesis: none;
 }
 * {
@@ -16,7 +16,7 @@ body {
   display: grid;
   place-items: center;
   padding: 40px 20px;
-  border-top: 6px solid #2258ed;
+  border-top: 6px solid #8dbce0;
 }
 a {
   color: inherit;
@@ -91,19 +91,19 @@ h1 {
     border-color 0.15s ease;
 }
 .link-button:hover {
-  background: #e9effc;
-  border-color: #9aafdb;
+  background: #e6f1f8;
+  border-color: #8dbce0;
 }
 .link-button.primary {
-  background: #2258ed;
-  border-color: #2258ed;
-  border-top-color: #7296f4;
-  border-bottom-color: #153ba1;
+  background: #8dbce0;
+  border-color: #8dbce0;
+  border-top-color: #b3d4ed;
+  border-bottom-color: #608fb2;
   box-shadow: none;
-  color: #fff;
+  color: #151b28;
 }
 .link-button.primary:hover {
-  background: #1943bc;
+  background: #79acd3;
 }
 .social-links {
   margin-top: 28px;
@@ -174,7 +174,7 @@ footer p {
 footer p a {
   display: inline-block;
   padding-block: 12px;
-  color: #1943bc;
+  color: #2d6086;
   font-weight: 700;
   text-decoration: none;
 }

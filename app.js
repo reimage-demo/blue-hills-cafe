@@ -99,9 +99,9 @@ if (eventList) {
     month: "2-digit",
     day: "2-digit",
   }).format(new Date());
-  // Cafe features can be promoted without implying a paid sponsorship.
+  // Always feature the earliest upcoming show, regardless of promotion status.
   const promotedEvent = events.find(
-    (event) => (event.dataset.popup === "true" || event.dataset.paidPromotion === "true") && event.dataset.eventDate >= today,
+    (event) => event.dataset.eventDate >= today,
   );
   if (promotedEvent && !window.location.hash) {
     const eventModal = document.createElement("dialog");
