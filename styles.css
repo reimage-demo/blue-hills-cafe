@@ -273,6 +273,24 @@ section[id] {
 .menu-toggle {
   display: none;
 }
+@media (min-width: 901px) {
+  .header-inner {
+    position: relative;
+  }
+  .nav {
+    position: absolute;
+    inset-inline: 0;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .nav > a {
+    pointer-events: auto;
+  }
+  .nav .button {
+    position: absolute;
+    right: 0;
+  }
+}
 /* Home: photography and an asymmetric, left-aligned type composition. */
 /* A narrow, solid bevel with chamfered corners, shared by the cafe photos. */
 .photo-frame {
