@@ -99,9 +99,9 @@ if (eventList) {
     month: "2-digit",
     day: "2-digit",
   }).format(new Date());
-  // Always feature the earliest upcoming show, regardless of promotion status.
+  // Feature the next show after today, regardless of promotion status.
   const promotedEvent = events.find(
-    (event) => event.dataset.eventDate >= today,
+    (event) => event.dataset.eventDate > today,
   );
   if (promotedEvent && !window.location.hash) {
     const eventModal = document.createElement("dialog");
