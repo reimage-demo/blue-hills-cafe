@@ -24,3 +24,7 @@ Run `python3 -m http.server 8077` from this directory.
 - Set `data-paid-promotion="true"` on an event only after its promotion payment is confirmed. All current events are unconfirmed and set to `false`.
 - The earliest dated event after today automatically gets a brief, centered pop-up on the events page: title, date, `data-promo-summary` (venue and admission details), and a details link. Dates use the cafe’s America/New_York time zone. Only paid promotions say “Sponsored event.” Events happening today and past events do not get pop-ups.
 - The Thursday offer opens automatically on the homepage. Each automatic pop-up appears once per tab session; direct links to page sections skip it. The announcement can reopen the Thursday offer on any page.
+
+## Bing IndexNow
+
+Canonical URLs and `sitemap.xml` use https://bluehillscafe.com/. Keep `indexnow-key.txt` at the published site root; it verifies URL submissions to Bing IndexNow. Submission confirms receipt, not inclusion in search results.
