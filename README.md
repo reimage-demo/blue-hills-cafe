@@ -36,3 +36,7 @@ Run `python3 -m http.server 8077` from this directory.
 After publishing these files through the normal GitHub Pages deployment, submit `https://bluehillscafe.com/sitemap.xml` in the verified Google Search Console property. Use URL Inspection on the homepage, events page, and hosting page, and check the homepage in Google's Rich Results Test. Keep the cafe's Google Business Profile address, phone, and hours consistent with the site.
 
 References: [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), [local business structured data](https://developers.google.com/search/docs/appearance/structured-data/local-business), [Google AI search guidance](https://developers.google.com/search/docs/appearance/ai-features), and [the llms.txt proposal](https://llmstxt.org/).
+
+## Bing IndexNow
+
+Canonical URLs and `sitemap.xml` use https://bluehillscafe.com/. Keep `indexnow-key.txt` at the published site root; it verifies URL submissions to Bing IndexNow. Submission confirms receipt, not inclusion in search results.
