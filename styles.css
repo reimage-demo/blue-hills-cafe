@@ -667,6 +667,10 @@ section[id] {
     gap: 28px;
   }
 }
+[data-event-date][hidden] {
+  display: none;
+}
+
 .event-list {
   display: grid;
   gap: 48px;

@@ -85,6 +85,14 @@ document
 if (page === "home") {
   showPromoOnce("blue-hills-thursday-v2", showPromo);
 }
+// Dates use YYYY-MM-DD, so they can be compared without parsing them as UTC.
+function hidePastEvents(events, today) {
+  events.forEach((event) => {
+    event.hidden = event.dataset.eventDate < today;
+  });
+  return events.filter((event) => !event.hidden);
+}
+
 // Keep recurring offers above dated events. Paid placement never changes date order.
 const eventList = document.querySelector("[data-event-list]");
 if (eventList) {
@@ -99,10 +107,9 @@ if (eventList) {
     month: "2-digit",
     day: "2-digit",
   }).format(new Date());
-  // Feature the next show after today, regardless of promotion status.
-  const promotedEvent = events.find(
-    (event) => event.dataset.eventDate > today,
-  );
+  const upcomingEvents = hidePastEvents(events, today);
+  // Feature the first visible event, including today's show.
+  const promotedEvent = upcomingEvents[0];
   if (promotedEvent && !window.location.hash) {
     const eventModal = document.createElement("dialog");
     eventModal.id = "event-special";

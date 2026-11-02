@@ -1,0 +1,28 @@
+# Blue Hills Cafe & Bar
+
+> Blue Hills Cafe is a neighborhood cafe and bar at 1329 Albany Avenue, Hartford, Connecticut 06112, United States. The cafe offers drinks, food, music nights, private celebrations, bottle service inquiries, and Jamaican catering through Caribe Exquisite Catering.
+
+Official website: https://bluehillscafe.com/
+Phone: +1-860-436-1553
+Events, rentals, and catering email: caribeexquisitecatering@gmail.com
+
+The cafe advertises $5 Thursday meals with one protein and one side. Contact the cafe for current dishes and serving times. Opening hours are listed on the homepage in Hartford local time (America/New_York).
+
+Dated events are listed on the events page. The page hides dates earlier than today in America/New_York and displays remaining events in chronological order. Past event entries may remain in the HTML source; compare their full dates with the current Hartford date before describing them as upcoming. Refer to the events page for current dates rather than treating this file as an event schedule.
+
+Rental availability, capacity, rates, bottle prices, event admission, and start times should be confirmed with the cafe. Sending an inquiry does not confirm a booking or order. The Appispot section currently provides inquiry information; a confirmed external booking listing is not yet linked.
+
+## Main pages
+
+- [Home and opening hours](https://bluehillscafe.com/): Location, contact details, weekly hours, Thursday special, and an introduction to the cafe.
+- [Events and Thursday menu](https://bluehillscafe.com/events.html): Dated music nights and celebrations, plus the recurring Thursday meal menu.
+- [Private events, bottle service, and catering](https://bluehillscafe.com/host.html): Event space, occasions, bottle requests, Jamaican catering, and the inquiry form.
+- [Quick links](https://bluehillscafe.com/landing-page.html): Short directory of the cafe's main pages and contact options.
+
+## Optional
+
+- [Legal and business information](https://bluehillscafe.com/legal.html): Business contact details, inquiry limitations, and image disclosures.
+- [Accessibility](https://bluehillscafe.com/accessibility.html): Help accessing the site and contacting the cafe.
+- [Privacy policy](https://bluehillscafe.com/privacy.html): How browsing and inquiry information is handled.
+- [Terms of use](https://bluehillscafe.com/terms.html): Website use and inquiry terms.
+- [XML sitemap](https://bluehillscafe.com/sitemap.xml): Canonical public page URLs.
