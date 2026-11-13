@@ -188,6 +188,9 @@ section[id] {
   color: inherit;
   font-size: 0.8rem;
 }
+.closure-announcement {
+  background: #70a8d2;
+}
 .announcement .closure-notice {
   margin: 0;
   text-align: center;
